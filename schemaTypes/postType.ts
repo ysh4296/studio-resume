@@ -27,9 +27,15 @@ export const postType = defineType({
       type: 'image',
     }),
     defineField({
-      name: 'body',
-      type: 'array',
-      of: [{type: 'block'}],
+      name: 'description',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'content',
+      type: 'markdown', // 플러그인에서 제공하는 Markdown 필드 타입
+      validation: (rule) => rule.required(),
+      description: 'Add your content in Markdown format',
     }),
   ],
 })

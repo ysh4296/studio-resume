@@ -17,10 +17,28 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'publishedAt',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
+      name: 'startDate',
+      type: 'string',
+      description: 'Enter the year and month (e.g., 2025-01)',
+      validation: (rule) =>
+        rule
+          .regex(/^\d{4}-(0[1-9]|1[0-2])$/, {
+            name: 'year-month', // Error message name
+            invert: false, // Don't allow invalid patterns
+          })
+          .required(),
+    }),
+    defineField({
+      name: 'endDate',
+      type: 'string',
+      description: 'Enter the year and month (e.g., 2025-01)',
+      validation: (rule) =>
+        rule
+          .regex(/^\d{4}-(0[1-9]|1[0-2])$/, {
+            name: 'year-month', // Error message name
+            invert: false, // Don't allow invalid patterns
+          })
+          .required(),
     }),
     defineField({
       name: 'image',

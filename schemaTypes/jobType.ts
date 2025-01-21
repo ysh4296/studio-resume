@@ -47,6 +47,9 @@ export const jobType = defineType({
     defineField({
       name: 'image',
       type: 'image',
+      options: {
+        hotspot: true, // 크롭 및 초점 조정 지원
+      },
     }),
     defineField({
       name: 'content',

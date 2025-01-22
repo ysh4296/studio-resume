@@ -50,6 +50,12 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'skills',
+      title: 'Skills',
+      type: 'array',
+      of: [{type: 'skillCategory'}], // 전역 객체 타입 참조
+    }),
+    defineField({
       name: 'content',
       type: 'markdown', // 플러그인에서 제공하는 Markdown 필드 타입
       validation: (rule) => rule.required(),

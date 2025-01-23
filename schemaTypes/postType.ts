@@ -16,7 +16,6 @@ export const postType = defineType({
       options: {source: 'title'},
       validation: (rule) => rule.required(),
     }),
-
     defineField({
       name: 'type',
       type: 'string',
@@ -24,6 +23,10 @@ export const postType = defineType({
     }),
     defineField({
       name: 'url',
+      type: 'string',
+    }),
+    defineField({
+      name: 'git',
       type: 'string',
     }),
     defineField({

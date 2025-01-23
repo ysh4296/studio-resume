@@ -16,6 +16,16 @@ export const postType = defineType({
       options: {source: 'title'},
       validation: (rule) => rule.required(),
     }),
+
+    defineField({
+      name: 'type',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'url',
+      type: 'string',
+    }),
     defineField({
       name: 'startDate',
       type: 'string',
@@ -41,8 +51,13 @@ export const postType = defineType({
           .required(),
     }),
     defineField({
-      name: 'image',
-      type: 'image',
+      name: 'images', // 필드 이름 변경
+      type: 'array',
+      title: 'Images', // 필드 제목
+      of: [{type: 'image'}], // 이미지 배열
+      options: {
+        layout: 'grid', // 배열 내 이미지를 그리드 형태로 표시
+      },
     }),
     defineField({
       name: 'description',

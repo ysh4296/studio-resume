@@ -37,12 +37,10 @@ export const jobType = defineType({
       type: 'string',
       description: 'Enter the year and month (e.g., 2025-01)',
       validation: (rule) =>
-        rule
-          .regex(/^\d{4}-(0[1-9]|1[0-2])$/, {
-            name: 'year-month', // Error message name
-            invert: false, // Don't allow invalid patterns
-          })
-          .required(),
+        rule.regex(/^\d{4}-(0[1-9]|1[0-2])$/, {
+          name: 'year-month', // Error message name
+          invert: false, // Don't allow invalid patterns
+        }),
     }),
     defineField({
       name: 'image',
